@@ -10,6 +10,7 @@ switch ($acao) {
     $pergunta = new PerguntaInsert();
     $pergunta->pergunta = $_POST['pergunta'];
     $pergunta->tipo = $_POST['tipo'];
+    $pergunta->resposta = $_POST['resposta'];
     $pergunta->inserir();
         break;
     case 'apagar':

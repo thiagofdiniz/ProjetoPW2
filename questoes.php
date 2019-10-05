@@ -83,6 +83,7 @@ $lista = $PerguntaInsert->buscar();
                         <th>Pergunta</th>
                         <th>Seu Tipo</th>
                         <th>Ações</th>
+                        
                     </tr>
                     <?php foreach ($lista as $pergunta): ?>
                         <td><?= $pergunta->idPergunta; ?></td>
@@ -126,7 +127,10 @@ $lista = $PerguntaInsert->buscar();
                             <label for="tipo">Insira o tipo da pergunta:</label>
                             <input type="text" name="tipo" class="form-control" id="tipo" placeholder="Ex: preencher, alternativa, multipla escolha etc...">
                         </div>
-                        
+                        <div class="form-group">
+                            <label for="pergunta">Resposta(s)</label>
+                            <input type="text" name="resposta" class="form-control" id="resposta" placeholder="Digite a resposta ">
+                        </div>
                         
 
                 </div>
