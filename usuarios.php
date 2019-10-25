@@ -26,7 +26,7 @@ $lista = $usuarioDAO->buscar();
         <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="usuarios.php">Home <span class="sr-only">(página atual)</span></a>
+                    <a class="nav-link" href="usuarios">Home <span class="sr-only">(página atual)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Link</a>
@@ -59,10 +59,10 @@ $lista = $usuarioDAO->buscar();
             <div class="col-2">
                 <ul class="nav flex-column nav-pills vertical">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Ativo</a>
+                        <a class="nav-link active " href="#">Usuários</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="questoes.php">Perguntas</a>
+                        <a class="nav-link " href="questoes">Perguntas</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Link</a>
