@@ -25,7 +25,7 @@ class PerguntaInsert
 
     public function inserir()
     {
-        $sql = "INSERT INTO questoes VALUES (0, '$this->pergunta', '$this->tipo','$this->resposta')";
+        $sql = "INSERT INTO questoes VALUES (0, '$this->pergunta', '$this->tipo')";
         $rs = $this->con->query($sql);
         if ($rs) {
             header('Location: questoes.php');
