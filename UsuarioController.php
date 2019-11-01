@@ -23,6 +23,13 @@ switch ($acao) {
         $senha = $_POST['senha'];
         $usuario->trocarsenha($id, $senha);
         break;
+
+    case 'trocarnome':
+        $usuario = new UsuarioDAO();
+        $id = $_POST['id'];
+        $nome = $_POST['nome'];
+        $usuario->trocarnome($id, $nome);
+        break;
     default:
         // code...
         break;

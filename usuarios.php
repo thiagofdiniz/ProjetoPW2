@@ -25,7 +25,7 @@ $lista = $usuarioDAO->buscar();
 
         <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
+                <li class="nav-item active ">
                     <a class="nav-link" href="usuarios">Home <span class="sr-only">(página atual)</span></a>
                 </li>
                 <li class="nav-item">
@@ -95,7 +95,8 @@ $lista = $usuarioDAO->buscar();
                                 href="UsuarioController.php?acao=apagar&id=<?= $usuario->idUsuario; ?>">
                                 <i class="fas fa-times"></i>
                             </a>
-                            <button type="button" class="btn btn-warning">
+                            <button type="button" class="btn btn-warning alterar-nome" data-toggle="modal"
+                                data-target="#modalnome" data-id="<?= $usuario->idUsuario; ?>">
                                 <i class="fas fa-user-edit"></i>
                             </button>
                             <button type="button" class="btn btn-info alterar-senha" data-toggle="modal"
@@ -160,7 +161,7 @@ $lista = $usuarioDAO->buscar();
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="UsuarioController.php?acao=trocarSenha" method="POST">
+                    <form action="UsuarioController.php?acao=trocarsenha" method="POST">
                         <input type="hidden" name="id" id="campo-id">
                         <div class="form-group">
                             <label for="senha">Senha</label>
@@ -169,12 +170,42 @@ $lista = $usuarioDAO->buscar();
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Salvar</button>
+                    <button type="submit" class="btn btn-primary" id="trocarSenha">Salvar</button>
                 </div>
                 </form>
             </div>
         </div>
     </div>
+
+    <!-- trocar nome -->
+    <div class="modal fade" id="modalnome" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Alterar Nome</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="UsuarioController.php?acao=trocarnome" method="POST">
+                        <input type="hidden" name="id" id="campo-id">
+                        <div class="form-group">
+                            <label for="nome">Nome</label>
+                            <input type="name" name="nome" class="form-control" id="nome" placeholder="Nome">
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary" id="trocarSenha">Salvar</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
 
 </body>
 
