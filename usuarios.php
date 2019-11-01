@@ -198,7 +198,7 @@ $lista = $usuarioDAO->buscar();
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary" id="trocarSenha">Salvar</button>
+                    <button type="submit" class="btn btn-primary" id="trocarnome">Salvar</button>
                 </div>
                 </form>
             </div>
