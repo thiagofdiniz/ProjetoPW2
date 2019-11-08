@@ -68,4 +68,9 @@ class UsuarioDAO
             echo $this->con->error;
         }
     }
+
+    public function logar(){
+        $sql = "SELECT * FROM usuarios"
+
+    }
 }

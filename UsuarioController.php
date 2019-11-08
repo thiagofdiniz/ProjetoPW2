@@ -30,6 +30,14 @@ switch ($acao) {
         $nome = $_POST['nome'];
         $usuario->trocarnome($id, $nome);
         break;
+
+        case 'logar':
+            $usuario = new UsuarioDAO();
+            $usuario->email = $_POST['email'];
+            $usauario->senha = $_POST['senha'];
+            $usuario->logar();
+            break;
+
     default:
         // code...
         break;
