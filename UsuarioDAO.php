@@ -69,8 +69,15 @@ class UsuarioDAO
         }
     }
 
-    public function logar(){
-        $sql = "SELECT * FROM usuarios"
-
+    public function logar()
+    {
+        $sql = "SELECT * FROM usuarios WHERE email='$this->email' AND senha=md5('$this->senha')";
+        $rs = $this->con->query($sql);
+        echo $sql;
+        //if ($rs->num_rows > 0) {
+       //     header('Location: /usuarios');
+      //  } else {
+      //      header('Location: /');
+     //   }
     }
 }
