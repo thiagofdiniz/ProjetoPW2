@@ -190,7 +190,7 @@ $lista = $usuarioDAO->buscar();
                 </div>
                 <div class="modal-body">
                     <form action="UsuarioController.php?acao=trocarnome" method="POST">
-                        <input type="hidden" name="id" id="campo-id">
+                        <input type="hidden" name="id" id="campo">
                         <div class="form-group">
                             <label for="nome">Nome</label>
                             <input type="name" name="nome" class="form-control" id="nome" placeholder="Nome">
@@ -222,6 +222,14 @@ $lista = $usuarioDAO->buscar();
 var botao = document.querySelector(".alterar-senha");
 botao.addEventListener("click", function() {
     var campo = document.querySelector("#campo-id");
+    campo.value = botao.getAttribute("data-id");
+});
+</script>
+
+<script type="text/javascript">
+var botao = document.querySelector(".alterar-nome");
+botao.addEventListener("click", function() {
+    var campo = document.querySelector("#campo");
     campo.value = botao.getAttribute("data-id");
 });
 </script>

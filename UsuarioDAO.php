@@ -5,7 +5,6 @@ class UsuarioDAO
     public $nome;
     public $email;
     public $senha;
-    
 
     private $con;
 
@@ -58,9 +57,10 @@ class UsuarioDAO
             echo $this->con->error;
         }
     }
+
     public function trocarnome($id, $nome)
     {
-        $sql = "UPDATE usuario SET nome=$nome WHERE idUsuario=$id";
+        $sql = "UPDATE usuario SET nome='$nome' WHERE idUsuario=$id";
         $rs = $this->con->query($sql);
         if ($rs) {
             header('Location: usuarios.php');
@@ -69,5 +69,3 @@ class UsuarioDAO
         }
     }
 }
-
-?>

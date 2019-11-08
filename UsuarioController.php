@@ -35,7 +35,5 @@ switch ($acao) {
         break;
 }
 
-
-
 ?>
 
