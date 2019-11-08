@@ -26,7 +26,7 @@ class UsuarioDAO
 
     public function inserir()
     {
-        $sql = "INSERT INTO usuario VALUES (0, '$this->nome', '$this->email', md5('$this->senha'))";
+        $sql = "INSERT INTO usuario VALUES (0, '$this->nome', '$this->email', md5('$this->senha')";
         $rs = $this->con->query($sql);
         if ($rs) {
             header('Location: usuarios.php');
@@ -74,10 +74,13 @@ class UsuarioDAO
         $sql = "SELECT * FROM usuarios WHERE email='$this->email' AND senha=md5('$this->senha')";
         $rs = $this->con->query($sql);
         echo $sql;
-        //if ($rs->num_rows > 0) {
-       //     header('Location: /usuarios');
-      //  } else {
-      //      header('Location: /');
-     //   }
+        if ($rs->num_rows > 0) {
+            session_start();
+            $_SESSION['logado'] = true;
+            //session_destroy();
+            header('Location: /usuarios');
+        } else {
+            header('Location: /');
+        }
     }
 }

@@ -1,4 +1,8 @@
 <?php
+if (!$_SESSION['logado']) {
+    header('Location: /');
+}
+
 include 'UsuarioDAO.php';
 
 $usuarioDAO = new UsuarioDAO();
