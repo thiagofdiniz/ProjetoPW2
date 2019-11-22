@@ -1,16 +1,16 @@
 <?php
 
+require 'config.php';
 class UsuarioDAO
 {
     public $nome;
     public $email;
     public $senha;
-
     private $con;
 
     public function __construct()
     {
-        $this->con = mysqli_connect('localhost', 'root', 'etecia', 'projetopw');
+        $this->con = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
     }
 
     public function apagar($id)
@@ -18,20 +18,23 @@ class UsuarioDAO
         $sql = "DELETE FROM usuario WHERE idUsuario=$id";
         $rs = $this->con->query($sql);
         if ($rs) {
+            session_start();
+            $_SESSION['sucess'] = 'Usuário apagado com sucesso!!';
             header('Location: usuarios.php');
         } else {
-            echo $this->con->error;
+            $_SESSION['danger'] = 'Erro ao apagar usuário!!';
         }
+        echo ('Location: /usuarios');
     }
 
     public function inserir()
     {
-        $sql = "INSERT INTO usuario VALUES (0, '$this->nome', '$this->email', md5('$this->senha')";
+        $sql = "INSERT INTO usuario VALUES (0, '$this->nome', '$this->email', AND md5('$this->senha')";
         $rs = $this->con->query($sql);
         if ($rs) {
             header('Location: usuarios.php');
         } else {
-            echo $this->con->error;
+            echo "$this->con->error";
         }
     }
 
@@ -77,10 +80,17 @@ class UsuarioDAO
         if ($rs->num_rows > 0) {
             session_start();
             $_SESSION['logado'] = true;
-            //session_destroy();
+            session_destroy();
             header('Location: /usuarios');
         } else {
             header('Location: /');
         }
+    }
+
+    public function sair()
+    {
+        session_start();
+        session_destroy();
+        header('Location: /');
     }
 }
