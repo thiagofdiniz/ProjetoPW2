@@ -81,21 +81,8 @@ $lista = $usuarioDAO->buscar();
                 </ul>
             </div>
             <div class="col-10">
-            <?php if (isset($_SESSION['sucess'])): ?>
-            <div class="alert alert-sucess">
-            <?= $_SESSION['sucess']?>
-            </div>
-            <?php
-            unset ($_SESSION['sucess']);
-            endif ?>
-
-<?php if (isset($_SESSION['danger'])): ?>
-            <div class="alert alert-danger">
-            <?= $_SESSION['danger']?>
-            </div>
-            <?php
-            unset ($_SESSION['danger']);
-            endif ?>
+            <?php mostrarAlerta('sucess');?>
+            <?php mostrarAlerta('danger');?>
                 <h3>Usuários</h3>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalnovo">
                     <i class="fas fa-user-plus"></i>

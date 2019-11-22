@@ -1,12 +1,12 @@
 <?php
-function mostrarAlerta (){
+function mostrarAlerta ($tipo){
     
-         if (isset($_SESSION['sucess'])){
-         echo "<div class='alert alert-sucess'>";
-         echo $_SESSION['sucess'];
+         if (isset($_SESSION[$tipo])){
+         echo "<div class='alert alert-$tipo'>";
+         echo $_SESSION[$tipo];
          echo "</div>";
          
-         unset ($_SESSION['sucess']);
+         unset ($_SESSION[$tipo]);
        
         }
 } 
