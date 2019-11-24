@@ -1,6 +1,7 @@
 <?php
+require 'config.php';
 
-class PerguntaInsert
+class PerguntaDAO
 {
     public $pergunta;
     public $tipo;
@@ -9,8 +10,8 @@ class PerguntaInsert
 
     public function __construct()
     {
-        $this->con = mysqli_connect('localhost', 'root', 'etecia', 'projetopw');
-    }
+        $this->con = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
+        }
 
     public function apagar($id)
     {
