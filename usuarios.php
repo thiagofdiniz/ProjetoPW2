@@ -1,7 +1,7 @@
 <?php
 include "UsuarioDAO.php";
 include "alertas.php";
-include "verificarLogin";
+include "verificarLogin.php";
 
 $usuarioDAO = new UsuarioDAO();
 $lista = $usuarioDAO->buscar();
