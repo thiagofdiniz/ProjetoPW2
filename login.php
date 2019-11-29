@@ -14,11 +14,11 @@
                         <h3 class="text-center text-info">Login</h3>
                         <div class="form-group">
                             <label for="username" class="text-info">E-mail:</label><br>
-                            <input type="text" name="email" id="username" class="form-control">
+                            <input type="text" name="email" id="email" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="password" class="text-info">Senha:</label><br>
-                            <input type="text" name="senha" id="password" class="form-control">
+                            <input type="password" name="senha" id="senha" class="form-control">
                         </div>
                         <div class="form-group">
                             

@@ -3,6 +3,7 @@
 require 'config.php';
 class UsuarioDAO
 {
+    public $id;
     public $nome;
     public $email;
     public $senha;
@@ -24,12 +25,12 @@ class UsuarioDAO
         } else {
             $_SESSION['danger'] = 'Erro ao apagar usuário!!';
         }
-        echo ('Location: /usuarios');
+        echo 'Location: /usuarios';
     }
 
     public function inserir()
     {
-        $sql = "INSERT INTO usuario VALUES (0, '$this->nome', '$this->email', AND md5('$this->senha')";
+        $sql = "INSERT INTO usuario VALUES (0, '$this->nome', '$this->email', md5('$this->senha'))";
         $rs = $this->con->query($sql);
         if ($rs) {
             header('Location: usuarios.php');
@@ -52,7 +53,7 @@ class UsuarioDAO
 
     public function trocarsenha($id, $senha)
     {
-        $sql = "UPDATE usuario SET senha=md5($senha)WHERE idUsuario=$id";
+        $sql = "UPDATE usuario SET senha=md5('$senha')WHERE idUsuario=$id";
         $rs = $this->con->query($sql);
         if ($rs) {
             header('Location: usuarios.php');
@@ -64,6 +65,7 @@ class UsuarioDAO
     public function trocarnome($id, $nome)
     {
         $sql = "UPDATE usuario SET nome='$nome' WHERE idUsuario=$id";
+        echo $sql;
         $rs = $this->con->query($sql);
         if ($rs) {
             header('Location: usuarios.php');

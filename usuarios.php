@@ -1,19 +1,19 @@
 <?php
-include "UsuarioDAO.php";
-include "alertas.php";
-include "verificarLogin.php";
+include 'UsuarioDAO.php';
+include 'alertas.php';
+//include 'verificarLogin.php';
 
 $usuarioDAO = new UsuarioDAO();
 $lista = $usuarioDAO->buscar();
 
-include "cabecalho.php";
-include "menu.php";
+include 'cabecalho.php';
+include 'menu.php';
 
 ?>  
             <div class="col-10">
-            <?php 
-                mostrarAlerta("sucess");
-                mostrarAlerta("danger");
+            <?php
+                mostrarAlerta('sucess');
+                mostrarAlerta('danger');
             ?>
                 <h3>Usuários</h3>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalnovo">
@@ -159,5 +159,21 @@ include "menu.php";
 </script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+</script>
+
+<script type="text/javascript">
+var botao = document.querySelector(".alterar-senha");
+botao.addEventListener("click", function() {
+    var campo = document.querySelector("#campo-id");
+    campo.value = botao.getAttribute("data-id");
+});
+</script>
+
+<script type="text/javascript">
+var botao = document.querySelector(".alterar-nome");
+botao.addEventListener("click", function() {
+    var campo = document.querySelector("#campo");
+    campo.value = botao.getAttribute("data-id");
+});
 </script>
 <html>
