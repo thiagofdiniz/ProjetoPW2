@@ -12,7 +12,7 @@ include 'menu.php';
 ?>  
             <div class="col-10">
             <?php
-                mostrarAlerta('sucess');
+                mostrarAlerta('success');
                 mostrarAlerta('danger');
             ?>
                 <h3>Usuários</h3>

@@ -21,7 +21,7 @@ class UsuarioDAO
         if ($rs) {
             session_start();
             $_SESSION['sucess'] = 'Usuário apagado com sucesso!!';
-            header('Location: usuarios.php');
+            header('Location: usuarios');
         } else {
             $_SESSION['danger'] = 'Erro ao apagar usuário!!';
         }
@@ -33,7 +33,7 @@ class UsuarioDAO
         $sql = "INSERT INTO usuario VALUES (0, '$this->nome', '$this->email', md5('$this->senha'))";
         $rs = $this->con->query($sql);
         if ($rs) {
-            header('Location: usuarios.php');
+            header('Location: usuarios');
         } else {
             echo "$this->con->error";
         }
@@ -56,7 +56,7 @@ class UsuarioDAO
         $sql = "UPDATE usuario SET senha=md5('$senha')WHERE idUsuario=$id";
         $rs = $this->con->query($sql);
         if ($rs) {
-            header('Location: usuarios.php');
+            header('Location: usuarios');
         } else {
             echo $this->con->error;
         }
@@ -68,7 +68,7 @@ class UsuarioDAO
         echo $sql;
         $rs = $this->con->query($sql);
         if ($rs) {
-            header('Location: usuarios.php');
+            header('Location: usuarios');
         } else {
             echo $this->con->error;
         }
