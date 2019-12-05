@@ -3,8 +3,6 @@
 include 'PerguntaDAO.php';
 $acao = $_GET['acao'];
 
-$acao = $_GET['acao'];
-
 switch ($acao) {
     case 'inserir':
     $pergunta = new PerguntaDAO();

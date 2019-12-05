@@ -1,7 +1,7 @@
 <?php
 include 'UsuarioDAO.php';
 include 'alertas.php';
-//include 'verificarLogin.php';
+include 'verificarLogin.php';
 
 $usuarioDAO = new UsuarioDAO();
 $lista = $usuarioDAO->buscar();
@@ -11,10 +11,10 @@ include 'menu.php';
 
 ?>  
             <div class="col-10">
-				<?php 
-					mostrarAlerta("success");
-					mostrarAlerta("danger");
-				?>
+				<?php
+                    mostrarAlerta('success');
+                    mostrarAlerta('danger');
+                ?>
 
                 <h3>Usuários</h3>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalnovo">

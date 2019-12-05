@@ -20,11 +20,11 @@ class UsuarioDAO
         $rs = $this->con->query($sql);
         if ($rs) {
             session_start();
-            $_SESSION['success'] = 'Usuário excluído com sucesso';
+            $_SESSION['success'] = 'Usuário excluído';
             header('Location: /usuarios');
         } else {
             session_start();
-            $_SESSION['danger'] = 'Erro ao apagar usuário.';
+            $_SESSION['danger'] = 'Erro ao apagar.';
             header('Location: /usuarios');
         }
     }
@@ -35,8 +35,8 @@ class UsuarioDAO
         $rs = $this->con->query($sql);
         if ($rs) {
             session_start();
-            $_SESSION["success"] = "Usuário cadastrado com sucesso";
-            header("Location: /usuarios");
+            $_SESSION['success'] = 'Sucesso';
+            header('Location: /usuarios');
         }
     }
 
@@ -77,7 +77,8 @@ class UsuarioDAO
 
     public function logar()
     {
-        $sql = "SELECT * FROM usuarios WHERE email='$this->email' AND senha=md5('$this->senha')";
+        $sql = "SELECT * FROM usuario WHERE email='$this->email' AND senha=md5('$this->senha')";
+        echo $sql;
         $rs = $this->con->query($sql);
         echo $sql;
         if ($rs->num_rows > 0) {
@@ -86,7 +87,7 @@ class UsuarioDAO
 
             header('Location: /usuarios');
         } else {
-            header('Location: /');
+            //header('Location: /?erro');
         }
     }
 

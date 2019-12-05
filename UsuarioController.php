@@ -33,7 +33,7 @@ switch ($acao) {
     case 'logar':
         $usuario = new UsuarioDAO();
         $usuario->email = $_POST['email'];
-        $usauario->senha = $_POST['senha'];
+        $usuario->senha = $_POST['senha'];
         $usuario->logar();
         break;
 
