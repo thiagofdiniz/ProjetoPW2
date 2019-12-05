@@ -11,10 +11,11 @@ include 'menu.php';
 
 ?>  
             <div class="col-10">
-            <?php
-                mostrarAlerta('success');
-                mostrarAlerta('danger');
-            ?>
+				<?php 
+					mostrarAlerta("success");
+					mostrarAlerta("danger");
+				?>
+
                 <h3>Usuários</h3>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalnovo">
                     <i class="fas fa-user-plus"></i>

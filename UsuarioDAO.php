@@ -20,12 +20,13 @@ class UsuarioDAO
         $rs = $this->con->query($sql);
         if ($rs) {
             session_start();
-            $_SESSION['sucess'] = 'Usuário apagado com sucesso!!';
-            header('Location: usuarios');
+            $_SESSION['success'] = 'Usuário excluído com sucesso';
+            header('Location: /usuarios');
         } else {
-            $_SESSION['danger'] = 'Erro ao apagar usuário!!';
+            session_start();
+            $_SESSION['danger'] = 'Erro ao apagar usuário.';
+            header('Location: /usuarios');
         }
-        echo 'Location: /usuarios';
     }
 
     public function inserir()
@@ -33,9 +34,9 @@ class UsuarioDAO
         $sql = "INSERT INTO usuario VALUES (0, '$this->nome', '$this->email', md5('$this->senha'))";
         $rs = $this->con->query($sql);
         if ($rs) {
-            header('Location: usuarios');
-        } else {
-            echo "$this->con->error";
+            session_start();
+            $_SESSION["success"] = "Usuário cadastrado com sucesso";
+            header("Location: /usuarios");
         }
     }
 
@@ -82,7 +83,7 @@ class UsuarioDAO
         if ($rs->num_rows > 0) {
             session_start();
             $_SESSION['logado'] = true;
-            session_destroy();
+
             header('Location: /usuarios');
         } else {
             header('Location: /');

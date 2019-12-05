@@ -5,11 +5,11 @@ $acao = $_GET['acao'];
 
 switch ($acao) {
     case 'inserir':
-    $usuario = new UsuarioDAO();
-    $usuario->nome = $_POST['nome'];
-    $usuario->email = $_POST['email'];
-    $usuario->senha = $_POST['senha'];
-    $usuario->inserir();
+        $usuario = new UsuarioDAO();
+        $usuario->nome = $_POST['nome'];
+        $usuario->email = $_POST['email'];
+        $usuario->senha = $_POST['senha'];
+        $usuario->inserir();
         break;
     case 'apagar':
         $usuario = new UsuarioDAO();
@@ -17,7 +17,7 @@ switch ($acao) {
         $usuario->apagar($id);
         break;
 
-     case 'trocarsenha':
+    case 'trocarsenha':
         $usuario = new UsuarioDAO();
         $id = $_POST['id'];
         $senha = $_POST['senha'];
@@ -30,23 +30,19 @@ switch ($acao) {
         $nome = $_POST['nome'];
         $usuario->trocarnome($id, $nome);
         break;
-
     case 'logar':
-            $usuario = new UsuarioDAO();
-            $usuario->email = $_POST['email'];
-            $usauario->senha = $_POST['senha'];
-            $usuario->logar();
-            break;
+        $usuario = new UsuarioDAO();
+        $usuario->email = $_POST['email'];
+        $usauario->senha = $_POST['senha'];
+        $usuario->logar();
+        break;
 
     case 'sair':
-            $usuario = new UsuarioDAO();
-            $usuario->sair();
-            break;
+        $usuario = new UsuarioDAO();
+        $usuario->sair();
+        break;
 
     default:
-       echo 'Erro!!';
+        echo 'Erro!!';
         break;
 }
-
-?>
-
