@@ -1,15 +1,13 @@
 <?php
 include 'PerguntaDAO.php';
-
+include 'verificarLogin.php';
 $PerguntaDAO = new PerguntaDAO();
 $lista = $PerguntaDAO->buscar();
 
-include "cabecalho.php";
-include "menu.php";
+include 'cabecalho.php';
+include 'menu.php';
 ?>
 <!DOCTYPE html>
-
-
         <div class="col-10">
             <h3>Questões</h3>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalnovo">

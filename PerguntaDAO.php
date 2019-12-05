@@ -1,4 +1,5 @@
 <?php
+
 require 'config.php';
 
 class PerguntaDAO
@@ -11,14 +12,14 @@ class PerguntaDAO
     public function __construct()
     {
         $this->con = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
-        }
+    }
 
     public function apagar($id)
     {
         $sql = "DELETE FROM questoes WHERE idPergunta=$id";
         $rs = $this->con->query($sql);
         if ($rs) {
-            header('Location: questoes.php');
+            header('Location: questoes');
         } else {
             echo $this->con->error;
         }
@@ -29,7 +30,7 @@ class PerguntaDAO
         $sql = "INSERT INTO questoes VALUES (0, '$this->pergunta', '$this->tipo')";
         $rs = $this->con->query($sql);
         if ($rs) {
-            header('Location: questoes.php');
+            header('Location: questoes');
         } else {
             echo $this->con->error;
         }
@@ -46,6 +47,4 @@ class PerguntaDAO
 
         return $listaDeUsuarios;
     }
-
-    
 }
