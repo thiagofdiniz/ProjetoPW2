@@ -6,7 +6,7 @@ class PerguntaDAO
 {
     public $pergunta;
     public $tipo;
-
+    private $id;
     private $con;
 
     public function __construct()
@@ -30,7 +30,7 @@ class PerguntaDAO
         $sql = "INSERT INTO questoes VALUES (0, '$this->pergunta', '$this->tipo')";
         $rs = $this->con->query($sql);
         if ($rs) {
-            header('Location: questoes');
+            header("Location: \questoes");
         } else {
             echo $this->con->error;
         }

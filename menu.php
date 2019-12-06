@@ -10,7 +10,7 @@
                         <a class="nav-link <?= ($url == '/questoes') ? 'active' : ''; ?>" href="/questoes">Questões</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link <?= ($url == '/alternativas') ? 'active' : ''; ?>" href=#>Alternativas</a>
+                        <a class="nav-link <?= ($url == '/alternativas') ? 'active' : ''; ?>" href=/alternativas.php>Alternativas</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link disabled" href="#">...</a>

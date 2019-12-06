@@ -27,10 +27,12 @@ include 'menu.php';
                     <td><?= $pergunta->tipo; ?></td>
                     <td>
 
+                    <a class="btn btn-info" href="\alternativas?pergunta=<?= $pergunta->idPergunta; ?>">
+								<i class="fas fa-align-justify"></i>
+							</a>
+							
+							
                         
-                        <button type="button" class="btn btn-primary">
-                            <i class="fas fa-align-justify"></i>
-                        </button>
                         <button type="button" class="btn btn-warning">
                             <i class="far fa-edit"></i>
                         </button>
