@@ -6,7 +6,7 @@ class AlternativasDAO
 {
     public $id;
     public $texto;
-    public $idQuestao;
+    public $idPergunta;
     public $correta;
     private $con;
 
@@ -15,12 +15,12 @@ class AlternativasDAO
         $this->con = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
     }
 
-    public function apagar($id, $idQuestao)
+    public function apagar($id, $idPergunta)
     {
         $sql = "DELETE FROM alternativas WHERE idAlternativa=$id";
         $rs = $this->con->query($sql);
         if ($rs) {
-            header("Location: \alternativas?questao=$idQuestao");
+            header("Location: \alternativas?questao=$idPergunta");
         } else {
             echo $this->con->error;
         }
@@ -28,10 +28,10 @@ class AlternativasDAO
 
     public function inserir()
     {
-        $sql = "INSERT INTO alternativas VALUES (0, $this->idQuestao, '$this->texto', '$this->correta')";
+        $sql = "INSERT INTO alternativas VALUES (0, $this->idPergunta, '$this->texto', '$this->correta')";
         $rs = $this->con->query($sql);
         if ($rs) {
-            header("Location: \alternativas?questao=$this->idQuestao");
+            header("Location: \alternativas?questao=$this->idPergunta");
         } else {
             echo $this->con->error;
         }
@@ -50,7 +50,7 @@ class AlternativasDAO
 
     public function buscar()
     {
-        $sql = "SELECT * FROM alternativas WHERE idQuestao=$this->idQuestao";
+        $sql = "SELECT * FROM alternativas WHERE idPergunta=$this->idPergunta";
         $rs = $this->con->query($sql);
         $lista = array();
         while ($linha = $rs->fetch_object()) {

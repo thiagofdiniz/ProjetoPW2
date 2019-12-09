@@ -2,19 +2,19 @@
 include 'verificarLogin.php';
 include 'AlternativasDAO.php';
 include 'PerguntaDAO.php';
-$idQuestao = $_GET['questao'];
+$idPergunta = $_GET['questao'];
 $alternativas = new AlternativasDAO();
-$alternativas->idQuestao = $idQuestao;
+$alternativas->idPergunta = $idPergunta;
 $lista = $alternativas->buscar();
 $questoes = new PerguntaDAO();
-$questoes->id = $idQuestao;
+$questoes->id = $idPergunta;
 $questoes->buscarPorId();
 include 'cabecalho.php';
 include 'menu.php';
 ?>
 <div class="container">
 	
-	<h2><?= $questoes->enunciado; ?></h2>
+	<h2><?= $questoes->pergunta; ?></h2>
 
 	<ul class="list-group lista-alternativas">
 		<?php foreach ($lista as $alternativa) : ?>
@@ -22,7 +22,7 @@ include 'menu.php';
 				<?= $alternativa->texto; ?>
 				<span class="badge">
 					<button class="btn btn-correta"><i class="fas fa-<?= ($alternativa->correta) ? 'check' : 'times'; ?>"></i></button>
-					<a href="AlternativasController.php?acao=apagar&id=<?= $alternativa->idAlternativa; ?>&idQuestao=<?= $idQuestao; ?>" class="btn btn-danger"><i class="fas fa-trash text-white"></i></a>
+					<a href="AlternativasController.php?acao=apagar&id=<?= $alternativa->idAlternativa; ?>&id$idPergunta=<?= $idPergunta; ?>" class="btn btn-danger"><i class="fas fa-trash text-white"></i></a>
 				</span>
 			</li>
 		<?php endforeach; ?>
@@ -41,7 +41,7 @@ include 'menu.php';
 			</div>
 			<div class="modal-body">
 				<form action="AlternativasController.php?acao=inserir" method="POST">
-					<input type="hidden" name="idQuestao" value="<?= $idQuestao; ?>">
+					<input type="hidden" name="id$idPergunta" value="<?= $idPergunta; ?>">
 					<div class="form-group">
 						<label for="texto">Texto</label>
 						<input type="text" name="texto" class="form-control" id="texto" placeholder="texto da alternativa">
