@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 12-Dez-2019 às 01:35
+-- Tempo de geração: 12-Dez-2019 às 21:09
 -- Versão do servidor: 10.4.8-MariaDB
 -- versão do PHP: 7.3.11
 
@@ -40,12 +40,7 @@ CREATE TABLE `alternativas` (
 --
 
 INSERT INTO `alternativas` (`idAlternativa`, `texto`, `idPergunta`, `correta`) VALUES
-(5, '4', 4, 1),
-(6, '22', 4, 0),
-(7, 'Cabral', 3, 1),
-(8, 'Bacal', 3, 0),
-(9, 'Colombo', 3, 0),
-(13, '33', 4, 0);
+(1, '1', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -64,8 +59,7 @@ CREATE TABLE `questoes` (
 --
 
 INSERT INTO `questoes` (`idPergunta`, `pergunta`, `tipo`) VALUES
-(3, 'Quem descobriu o Braza?', 'alternativas'),
-(4, 'Quanto é 2+2 ?', 'numérica');
+(1, ' 1+0 = ?', 'alternativa');
 
 -- --------------------------------------------------------
 
@@ -85,8 +79,7 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`idUsuario`, `nome`, `email`, `senha`) VALUES
-(0, 'Thiago', '123@gmail.com', '202cb962ac59075b964b07152d234b70'),
-(9, 'EU', '123@gmail.com', '202cb962ac59075b964b07152d234b70');
+(1, 'Thiago', '123@gmail.com', '202cb962ac59075b964b07152d234b70');
 
 --
 -- Índices para tabelas despejadas
