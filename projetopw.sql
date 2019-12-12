@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 25-Out-2019 às 03:13
--- Versão do servidor: 5.7.21-log
--- versão do PHP: 7.3.1
+-- Tempo de geração: 12-Dez-2019 às 01:35
+-- Versão do servidor: 10.4.8-MariaDB
+-- versão do PHP: 7.3.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `projetopw`
+-- Banco de dados: `projetopw`
 --
 
 -- --------------------------------------------------------
@@ -34,6 +34,18 @@ CREATE TABLE `alternativas` (
   `idQuestao` int(11) NOT NULL,
   `correta` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `alternativas`
+--
+
+INSERT INTO `alternativas` (`idAlternativa`, `texto`, `idQuestao`, `correta`) VALUES
+(5, '4', 4, 1),
+(6, '22', 4, 0),
+(7, 'Cabral', 3, 1),
+(8, 'Bacal', 3, 0),
+(9, 'Colombo', 3, 0),
+(13, '33', 4, 0);
 
 -- --------------------------------------------------------
 
@@ -52,7 +64,8 @@ CREATE TABLE `questoes` (
 --
 
 INSERT INTO `questoes` (`idPergunta`, `pergunta`, `tipo`) VALUES
-(9, '123', 'abc');
+(3, 'Quem descobriu o Braza?', 'alternativas'),
+(4, 'Quanto é 2+2 ?', 'numérica');
 
 -- --------------------------------------------------------
 
@@ -72,56 +85,57 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`idUsuario`, `nome`, `email`, `senha`) VALUES
-(0, 'Thiago', '123@gmail.com', '202cb962ac59075b964b07152d234b70');
+(0, 'Thiago', '123@gmail.com', '202cb962ac59075b964b07152d234b70'),
+(9, 'EU', '123@gmail.com', '202cb962ac59075b964b07152d234b70');
 
 --
--- Indexes for dumped tables
+-- Índices para tabelas despejadas
 --
 
 --
--- Indexes for table `alternativas`
+-- Índices para tabela `alternativas`
 --
 ALTER TABLE `alternativas`
   ADD PRIMARY KEY (`idAlternativa`),
   ADD KEY `alternativa_questao` (`idQuestao`);
 
 --
--- Indexes for table `questoes`
+-- Índices para tabela `questoes`
 --
 ALTER TABLE `questoes`
   ADD PRIMARY KEY (`idPergunta`);
 
 --
--- Indexes for table `usuario`
+-- Índices para tabela `usuario`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`idUsuario`),
   ADD KEY `idUsuario` (`idUsuario`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
--- AUTO_INCREMENT for table `alternativas`
+-- AUTO_INCREMENT de tabela `alternativas`
 --
 ALTER TABLE `alternativas`
-  MODIFY `idAlternativa` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idAlternativa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT for table `questoes`
+-- AUTO_INCREMENT de tabela `questoes`
 --
 ALTER TABLE `questoes`
   MODIFY `idPergunta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `usuario`
+-- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- Constraints for dumped tables
+-- Restrições para despejos de tabelas
 --
 
 --
