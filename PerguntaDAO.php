@@ -40,11 +40,20 @@ class PerguntaDAO
     {
         $sql = 'SELECT * FROM questoes';
         $rs = $this->con->query($sql);
-        $listaDeUsuarios = array();
-        while ($lista = $rs->fetch_object()) {
-            $listaDeUsuarios[] = $lista;
+        $lista = array();
+        while ($linha = $rs->fetch_object()) {
+            $lista[] = $linha;
         }
 
-        return $listaDeUsuarios;
+        return $lista;
+    }
+    public function buscarPorId()
+    {
+        $sql = "SELECT * FROM questoes WHERE idPergunta=$this->id";
+        $rs = $this->con->query($sql);
+        if ($linha = $rs->fetch_object()) {
+            $this->texto = $linha->texto;
+            $this->tipo = $linha->tipo;
+        }
     }
 }

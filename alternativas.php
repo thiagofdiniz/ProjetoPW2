@@ -1,31 +1,31 @@
 <?php
-include 'verificarLogin.php';
-include 'AlternativasDAO.php';
-include 'PerguntaDAO.php';
-$idPergunta = $_GET['questao'];
+include "verificarLogin.php";
+include "AlternativasDAO.php";
+include "PerguntaDAO.php";
+$idPergunta = $_GET["pergunta"];
 $alternativas = new AlternativasDAO();
 $alternativas->idPergunta = $idPergunta;
 $lista = $alternativas->buscar();
 $questoes = new PerguntaDAO();
 $questoes->id = $idPergunta;
 $questoes->buscarPorId();
-include 'cabecalho.php';
-include 'menu.php';
+include "cabecalho.php";
+include "menu.php";
 ?>
 <div class="container">
-	
-	<h2><?= $questoes->pergunta; ?></h2>
+
+	<h2><?= $questoes->texto ?></h2>
 
 	<ul class="list-group lista-alternativas">
 		<?php foreach ($lista as $alternativa) : ?>
 			<li class="list-group-item d-flex justify-content-between align-items-center">
-				<?= $alternativa->texto; ?>
+				<?= $alternativa->texto ?>
 				<span class="badge">
-					<button class="btn btn-correta"><i class="fas fa-<?= ($alternativa->correta) ? 'check' : 'times'; ?>"></i></button>
-					<a href="AlternativasController.php?acao=apagar&id=<?= $alternativa->idAlternativa; ?>&id$idPergunta=<?= $idPergunta; ?>" class="btn btn-danger"><i class="fas fa-trash text-white"></i></a>
+					<button class="btn btn-correta"><i class="fas fa-<?= ($alternativa->correta) ? 'check' : 'times' ?>"></i></button>
+					<a href="AlternativasController.php?acao=apagar&id=<?= $alternativa->idAlternativa ?>&idPergunta=<?= $idPergunta ?>" class="btn btn-danger"><i class="fas fa-trash text-white"></i></a>
 				</span>
 			</li>
-		<?php endforeach; ?>
+		<?php endforeach ?>
 	</ul>
 	<button class="btn btn-primary" data-toggle="modal" data-target="#modalnovo"><i class="fas fa-plus"></i></button>
 </div>
@@ -41,7 +41,7 @@ include 'menu.php';
 			</div>
 			<div class="modal-body">
 				<form action="AlternativasController.php?acao=inserir" method="POST">
-					<input type="hidden" name="id$idPergunta" value="<?= $idPergunta; ?>">
+					<input type="hidden" name="idPergunta" value="<?= $idPergunta ?>">
 					<div class="form-group">
 						<label for="texto">Texto</label>
 						<input type="text" name="texto" class="form-control" id="texto" placeholder="texto da alternativa">
@@ -54,11 +54,11 @@ include 'menu.php';
 							</label>
 						</div>
 					</div>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-					<button type="submit" class="btn btn-primary">Salvar</button>
-				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+				<button type="submit" class="btn btn-primary">Salvar</button>
+			</div>
 			</form>
 		</div>
 	</div>
