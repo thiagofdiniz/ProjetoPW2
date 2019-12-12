@@ -19,7 +19,7 @@ class AlternativasDAO
     }
     public function inserir()
     {
-        $sql = "INSERT INTO alternativas VALUES (0, $this->idPergunta, '$this->texto', '$this->correta')";
+        $sql = "INSERT INTO alternativas VALUES (0, $this->idPergunta , '$this->texto', '$this->correta')";
         $rs = $this->con->query($sql);
         if ($rs)
             header("Location: \alternativas?pergunta=$this->idPergunta");
@@ -28,7 +28,7 @@ class AlternativasDAO
     }
     public function editar()
     {
-        $sql = "UPDATE alternativas SET texto='$this->texto', correta='$this->correta' WHERE idAlternativa=$this->id";
+        $sql = "UPDATE alternativas SET texto='$this->texto' , correta='$this->correta' WHERE idAlternativa=$this->id";
         $rs = $this->con->query($sql);
         if ($rs)
             header("Location: \alternativas?pergunta$id");
@@ -37,7 +37,7 @@ class AlternativasDAO
     }
     public function buscar()
     {
-        $sql = "SELECT * FROM alternativas WHERE idQuestao=$this->idPergunta";
+        $sql = "SELECT * FROM alternativas WHERE idPergunta=$this->idPergunta";
         $rs = $this->con->query($sql);
         $lista = array();
         while ($linha = $rs->fetch_object()) {

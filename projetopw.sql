@@ -31,7 +31,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `alternativas` (
   `idAlternativa` int(11) NOT NULL,
   `texto` varchar(200) NOT NULL,
-  `idQuestao` int(11) NOT NULL,
+  `idPergunta` int(11) NOT NULL,
   `correta` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -39,7 +39,7 @@ CREATE TABLE `alternativas` (
 -- Extraindo dados da tabela `alternativas`
 --
 
-INSERT INTO `alternativas` (`idAlternativa`, `texto`, `idQuestao`, `correta`) VALUES
+INSERT INTO `alternativas` (`idAlternativa`, `texto`, `idPergunta`, `correta`) VALUES
 (5, '4', 4, 1),
 (6, '22', 4, 0),
 (7, 'Cabral', 3, 1),
@@ -97,7 +97,7 @@ INSERT INTO `usuario` (`idUsuario`, `nome`, `email`, `senha`) VALUES
 --
 ALTER TABLE `alternativas`
   ADD PRIMARY KEY (`idAlternativa`),
-  ADD KEY `alternativa_questao` (`idQuestao`);
+  ADD KEY `alternativa_questao` (`idPergunta`);
 
 --
 -- Índices para tabela `questoes`
@@ -142,7 +142,7 @@ ALTER TABLE `usuario`
 -- Limitadores para a tabela `alternativas`
 --
 ALTER TABLE `alternativas`
-  ADD CONSTRAINT `alternativa_questao` FOREIGN KEY (`idQuestao`) REFERENCES `questoes` (`idPergunta`) ON DELETE CASCADE;
+  ADD CONSTRAINT `alternativa_questao` FOREIGN KEY (`idPergunta`) REFERENCES `questoes` (`idPergunta`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

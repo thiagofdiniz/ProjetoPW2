@@ -6,7 +6,7 @@ class PerguntaDAO
 {
     public $pergunta;
     public $tipo;
-    private $id;
+    public $id;
     private $con;
 
     public function __construct()
@@ -25,17 +25,6 @@ class PerguntaDAO
         }
     }
 
-    public function inserir()
-    {
-        $sql = "INSERT INTO questoes VALUES (0, '$this->pergunta', '$this->tipo')";
-        $rs = $this->con->query($sql);
-        if ($rs) {
-            header("Location: \questoes");
-        } else {
-            echo $this->con->error;
-        }
-    }
-
     public function buscar()
     {
         $sql = 'SELECT * FROM questoes';
@@ -47,13 +36,35 @@ class PerguntaDAO
 
         return $lista;
     }
+
+    public function inserir()
+    {
+        $sql = "INSERT INTO questoes VALUES (0, '$this->pergunta', '$this->tipo')";
+        $rs = $this->con->query($sql);
+        if ($rs) {
+            header("Location: \questoes");
+        } else {
+            echo $this->con->error;
+        }
+    }
+
+
     public function buscarPorId()
     {
         $sql = "SELECT * FROM questoes WHERE idPergunta=$this->id";
         $rs = $this->con->query($sql);
         if ($linha = $rs->fetch_object()) {
-            $this->texto = $linha->texto;
+            $this->pergunta = $linha->pergunta;
             $this->tipo = $linha->tipo;
         }
+    }
+    public function editar()
+    {
+        $sql = "UPDATE questoes SET pergunta='$this->pergunta', tipo='$this->tipo' WHERE idPergunta=$this->id";
+        $rs = $this->con->query($sql);
+        if ($rs)
+            header("Location: questoes");
+        else
+            echo $this->con->error;
     }
 }

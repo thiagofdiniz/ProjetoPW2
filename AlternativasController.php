@@ -5,8 +5,8 @@ $acao = $_GET['acao'];
 switch ($acao) {
     case 'inserir':
         $alternativa = new AlternativasDAO();
-        $alternativa->texto = $_POST['texto'];
-        $alternativa->idPergunta = $_POST['idQuestao'];
+        $alternativa->pergunta = $_POST['pergunta'];
+        $alternativa->idPergunta = $_POST['idPergunta'];
         if (isset($_POST['correta'])) {
             $alternativa->correta = 1;
         } else {
@@ -17,7 +17,7 @@ switch ($acao) {
     case 'apagar':
         $alternativa = new AlternativasDAO();
         $id = $_GET['id'];
-        $idPergunta = $_GET['idQuestao'];
+        $idPergunta = $_GET['idPergunta'];
         $alternativa->apagar($id, $idPergunta);
         break;
     case 'editar':
