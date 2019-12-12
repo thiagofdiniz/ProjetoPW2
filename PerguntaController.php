@@ -18,9 +18,9 @@ switch ($acao) {
         break;
     case 'editar':
         $pergunta = new PerguntaDAO();
-        $pergunta->id = $_POST["id"];
-        $pergunta->texto = $_POST["texto"];
-        $pergunta->tipo = $_POST["tipo"];
+        $pergunta->id = $_POST['id'];
+        $pergunta->texto = $_POST['texto'];
+        $pergunta->tipo = $_POST['tipo'];
         $pergunta->editar();
         break;
 }

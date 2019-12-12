@@ -56,11 +56,13 @@ class UsuarioDAO
     {
         $sql = "UPDATE usuario SET senha=md5('$senha')WHERE idUsuario=$id";
         $rs = $this->con->query($sql);
+        session_start();
         if ($rs) {
-            header('Location: usuarios');
-        } else {
-            echo $this->con->error;
-        }
+           $_SESSION["success"] = "Senha Trocada";
+       } else {
+           $_SESSION["danger"] = "Erro";
+       }
+       header("Location: \usuarios");
     }
 
     public function trocarnome($id, $nome)
@@ -68,11 +70,13 @@ class UsuarioDAO
         $sql = "UPDATE usuario SET nome='$nome' WHERE idUsuario=$id";
         echo $sql;
         $rs = $this->con->query($sql);
+        session_start();
         if ($rs) {
-            header('Location: usuarios');
-        } else {
-            echo $this->con->error;
-        }
+           $_SESSION["success"] = "Nome Alterado";
+       } else {
+           $_SESSION["danger"] = "Erro ao alterar nome";
+       }
+       header("Location: \usuarios");
     }
 
     public function logar()

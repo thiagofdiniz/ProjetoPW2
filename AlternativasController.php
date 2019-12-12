@@ -4,16 +4,13 @@ include 'AlternativasDAO.php';
 $acao = $_GET['acao'];
 switch ($acao) {
     case 'inserir':
-        $alternativa = new AlternativasDAO();
-        $alternativa->pergunta = $_POST['pergunta'];
-        $alternativa->idPergunta = $_POST['idPergunta'];
-        if (isset($_POST['correta'])) {
-            $alternativa->correta = 1;
-        } else {
-            $alternativa->correta = 0;
-        }
-        $alternativa->inserir();
-        break;
+		$alternativa = new AlternativasDAO();
+		$alternativa->pergunta = $_POST['pergunta'];
+		$alternativa->idPergunta = $_POST['idPergunta'];
+		if (isset($_POST['correta'])) $alternativa->correta = 1;
+		else $alternativa->correta = 0;
+		$alternativa->inserir();
+		break;
     case 'apagar':
         $alternativa = new AlternativasDAO();
         $id = $_GET['id'];
@@ -28,6 +25,6 @@ switch ($acao) {
         $alternativa->editar();
         break;
     default:
-        echo 'acao não reconhecida';
+        echo 'Ação não reconhecida';
         break;
 }

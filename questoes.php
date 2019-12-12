@@ -5,9 +5,14 @@ $PerguntaDAO = new PerguntaDAO();
 $lista = $PerguntaDAO->buscar();
 include 'cabecalho.php';
 include 'menu.php';
+include 'alertas.php';
 ?>
 <!DOCTYPE html>
 <div class="col-10">
+<?php 
+					mostrarAlerta("success");
+					mostrarAlerta("danger");
+				?>	
     <h3>Questões</h3>
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalnovo">
         Insira uma pergunta
@@ -31,7 +36,7 @@ include 'menu.php';
                 </a>
 
 
-                <button class="btn btn-warning btn-editar" data-toggle="modal" data-target="#modaleditar" data-id="<?= $questao->idPergunta ?>" data-texto="<?= $questao->pergunta ?>" data-tipo="<?= $questao->tipo ?>">
+                <button class="btn btn-warning btn-editar" data-toggle="modal" data-target="#modaleditar" data-id="<?= $pergunta->idPergunta ?>" data-texto="<?= $pergunta->texto ?>" data-tipo="<?= $pergunta->tipo ?>">
                     <i class="far fa-edit"></i>
                 </button>
 
@@ -70,10 +75,7 @@ include 'menu.php';
                         <label for="tipo">Insira o tipo da pergunta:</label>
                         <input type="text" name="tipo" class="form-control" id="tipo" placeholder="Ex: preencher, alternativa, multipla escolha etc...">
                     </div>
-                    <div class="form-group">
-                        <label for="pergunta">Resposta(s)</label>
-                        <input type="text" name="resposta" class="form-control" id="resposta" placeholder="Digite a resposta ">
-                    </div>
+                    
 
 
             </div>

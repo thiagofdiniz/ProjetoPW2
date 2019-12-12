@@ -8,30 +8,31 @@ class AlternativasDAO
     private $con;
     function __construct()
     {
-        $this->con = mysqli_connect("localhost", "root", "", "projetopw");
+        $this->con = mysqli_connect("localhost", "root", "etecia", "projetopw");
     }
     public function apagar($id, $idPergunta)
     {
         $sql = "DELETE FROM alternativas WHERE idAlternativa=$id";
         $rs = $this->con->query($sql);
-        if ($rs) header("Location: \alternativas?pergunta=$idPergunta");
+        if ($rs) header("Location: alternativas?pergunta=$idPergunta");
         else echo $this->con->error;
     }
-    public function inserir()
-    {
-        $sql = "INSERT INTO alternativas VALUES (0, $this->idPergunta , '$this->texto', '$this->correta')";
+    public function inserir(){
+		$sql = "INSERT INTO alternativas VALUES (0, $this->idPergunta, '$this->pergunta', '$this->correta')";
         $rs = $this->con->query($sql);
-        if ($rs)
-            header("Location: \alternativas?pergunta=$this->idPergunta");
-        else
-            echo $this->con->error;
-    }
+        echo $sql;
+		if ($rs) 
+            header("Location: alternativas?pergunta=$this->idPergunta");
+            
+		else 
+			echo $this->con->error;
+	}   
     public function editar()
     {
         $sql = "UPDATE alternativas SET texto='$this->texto' , correta='$this->correta' WHERE idAlternativa=$this->id";
         $rs = $this->con->query($sql);
         if ($rs)
-            header("Location: \alternativas?pergunta$id");
+            header("Location: alternativas?pergunta$id");
         else
             echo $this->con->error;
     }

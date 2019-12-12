@@ -18,11 +18,13 @@ class PerguntaDAO
     {
         $sql = "DELETE FROM questoes WHERE idPergunta=$id";
         $rs = $this->con->query($sql);
+        session_start();
         if ($rs) {
-            header('Location: questoes');
-        } else {
-            echo $this->con->error;
-        }
+           $_SESSION["success"] = "Questão Excluida";
+       } else {
+           $_SESSION["danger"] = "Questão não foi Excluida";
+       }
+       header("Location: \questoes");
     }
 
     public function buscar()
@@ -41,12 +43,14 @@ class PerguntaDAO
     {
         $sql = "INSERT INTO questoes VALUES (0, '$this->pergunta', '$this->tipo')";
         $rs = $this->con->query($sql);
+        session_start();
         if ($rs) {
-            header("Location: \questoes");
-        } else {
-            echo $this->con->error;
-        }
-    }
+           $_SESSION["success"] = "Questão Inserida";
+       } else {
+           $_SESSION["danger"] = "Questão não foi Excluida";
+       }
+       header("Location: \questoes");
+    } 
 
 
     public function buscarPorId()
@@ -60,11 +64,15 @@ class PerguntaDAO
     }
     public function editar()
     {
-        $sql = "UPDATE questoes SET pergunta='$this->pergunta', tipo='$this->tipo' WHERE idPergunta=$this->id";
+        $sql = "UPDATE questoes SET pergunta='$this->texto', tipo='$this->tipo' WHERE idPergunta=$this->id";
         $rs = $this->con->query($sql);
-        if ($rs)
-            header("Location: questoes");
-        else
-            echo $this->con->error;
-    }
+        echo $sql;
+        session_start();
+        if ($rs) {
+           $_SESSION["success"] = "Questão Editada";
+       } else {
+           $_SESSION["danger"] = "Questão não foi editada";
+       }
+       header("Location: \questoes");
+}
 }
