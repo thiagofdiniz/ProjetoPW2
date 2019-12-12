@@ -18,9 +18,8 @@ class AlternativasDAO
         else echo $this->con->error;
     }
     public function inserir(){
-		$sql = "INSERT INTO alternativas VALUES (0, $this->idPergunta, '$this->pergunta', '$this->correta')";
+		$sql = "INSERT INTO alternativas VALUES (0, '$this->pergunta',$this->idPergunta, '$this->correta')";
         $rs = $this->con->query($sql);
-        echo $sql;
 		if ($rs) 
             header("Location: alternativas?pergunta=$this->idPergunta");
             
