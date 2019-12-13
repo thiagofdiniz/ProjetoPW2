@@ -24,7 +24,7 @@ class UsuarioDAO
             header('Location: /usuarios');
         } else {
             session_start();
-            $_SESSION['danger'] = 'Erro ao apagar.';
+            $_SESSION['danger'] = 'Erro ao excluir.';
             header('Location: /usuarios');
         }
     }
@@ -58,11 +58,11 @@ class UsuarioDAO
         $rs = $this->con->query($sql);
         session_start();
         if ($rs) {
-           $_SESSION["success"] = "Senha Trocada";
-       } else {
-           $_SESSION["danger"] = "Erro";
-       }
-       header("Location: \usuarios");
+            $_SESSION["success"] = "Senha alterada";
+        } else {
+            $_SESSION["danger"] = "Erro ao alterar senha";
+        }
+        header("Location: \usuarios");
     }
 
     public function trocarnome($id, $nome)
@@ -72,11 +72,11 @@ class UsuarioDAO
         $rs = $this->con->query($sql);
         session_start();
         if ($rs) {
-           $_SESSION["success"] = "Nome Alterado";
-       } else {
-           $_SESSION["danger"] = "Erro ao alterar nome";
-       }
-       header("Location: \usuarios");
+            $_SESSION["success"] = "Nome alterado";
+        } else {
+            $_SESSION["danger"] = "Erro ao alterar nome";
+        }
+        header("Location: \usuarios");
     }
 
     public function logar()

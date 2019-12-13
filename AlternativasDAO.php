@@ -8,7 +8,7 @@ class AlternativasDAO
     private $con;
     function __construct()
     {
-        $this->con = mysqli_connect("localhost", "root", "etecia", "projetopw");
+        $this->con = mysqli_connect("localhost", "root", "", "projetopw");
     }
     public function apagar($id, $idPergunta)
     {
@@ -17,15 +17,16 @@ class AlternativasDAO
         if ($rs) header("Location: alternativas?pergunta=$idPergunta");
         else echo $this->con->error;
     }
-    public function inserir(){
-		$sql = "INSERT INTO alternativas VALUES (0, '$this->pergunta',$this->idPergunta, '$this->correta')";
+    public function inserir()
+    {
+        $sql = "INSERT INTO alternativas VALUES (0, '$this->pergunta',$this->idPergunta, '$this->correta')";
         $rs = $this->con->query($sql);
-		if ($rs) 
+        if ($rs)
             header("Location: alternativas?pergunta=$this->idPergunta");
-            
-		else 
-			echo $this->con->error;
-	}   
+
+        else
+            echo $this->con->error;
+    }
     public function editar()
     {
         $sql = "UPDATE alternativas SET texto='$this->texto' , correta='$this->correta' WHERE idAlternativa=$this->id";

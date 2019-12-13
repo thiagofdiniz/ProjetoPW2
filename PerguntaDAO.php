@@ -20,11 +20,11 @@ class PerguntaDAO
         $rs = $this->con->query($sql);
         session_start();
         if ($rs) {
-           $_SESSION["success"] = "Questão Excluida";
-       } else {
-           $_SESSION["danger"] = "Questão não foi Excluida";
-       }
-       header("Location: \questoes");
+            $_SESSION["success"] = "Questão excluida";
+        } else {
+            $_SESSION["danger"] = "Erro ao excluir questão";
+        }
+        header("Location: \questoes");
     }
 
     public function buscar()
@@ -45,12 +45,12 @@ class PerguntaDAO
         $rs = $this->con->query($sql);
         session_start();
         if ($rs) {
-           $_SESSION["success"] = "Questão Inserida";
-       } else {
-           $_SESSION["danger"] = "Questão não foi Excluida";
-       }
-       header("Location: \questoes");
-    } 
+            $_SESSION["success"] = "Questão inserida";
+        } else {
+            $_SESSION["danger"] = "Erro ao inserir questão";
+        }
+        header("Location: \questoes");
+    }
 
 
     public function buscarPorId()
@@ -69,10 +69,10 @@ class PerguntaDAO
         echo $sql;
         session_start();
         if ($rs) {
-           $_SESSION["success"] = "Questão Editada";
-       } else {
-           $_SESSION["danger"] = "Questão não foi editada";
-       }
-       header("Location: \questoes");
-}
+            $_SESSION["success"] = "Questão editada";
+        } else {
+            $_SESSION["danger"] = "Erro ao editar questão";
+        }
+        header("Location: \questoes");
+    }
 }
